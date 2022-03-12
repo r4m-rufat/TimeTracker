@@ -12,7 +12,7 @@ import com.codingwithrufat.timetracker.db.models.Category;
 @Database(entities = {Category.class}, version = 1, exportSchema = false)
 abstract class CategoryDatabase extends RoomDatabase {
 
-    public abstract CategoryDao getDao();
+    public abstract CategoryDao getCategoryDao();
     private CategoryDatabase INSTANCE = null;
     public CategoryDatabase getCategoryDatabase(Context context){
 

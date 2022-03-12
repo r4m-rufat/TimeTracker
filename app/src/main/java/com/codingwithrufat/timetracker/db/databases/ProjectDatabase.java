@@ -12,7 +12,7 @@ import com.codingwithrufat.timetracker.db.models.Project;
 @Database(entities = {Project.class}, version = 1)
 abstract class ProjectDatabase extends RoomDatabase {
 
-    public abstract ProjectDao getDao();
+    public abstract ProjectDao getProjectDao();
     private ProjectDatabase INSTANCE = null;
     public ProjectDatabase getProjectDatabase(Context context){
 
@@ -21,7 +21,7 @@ abstract class ProjectDatabase extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(
                     context.getApplicationContext(),
                     ProjectDatabase.class,
-                    "CATEGORY_DB"
+                    "PROJECT_DB"
             ).allowMainThreadQueries().build();
 
         }
