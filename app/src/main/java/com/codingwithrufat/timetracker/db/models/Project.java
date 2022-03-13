@@ -10,12 +10,11 @@ public class Project {
     private Integer id;
     private Integer category_id;
     private String name;
-    private String color_code;
-    private Integer start;
-    private Integer end;
+    private Integer color_code;
+    private Long start;
+    private Long end;
 
-    public Project(Integer id, Integer category_id, String name, String color_code, Integer start, Integer end) {
-        this.id = id;
+    public Project(Integer category_id, String name, Integer color_code, Long start, Long end) {
         this.category_id = category_id;
         this.name = name;
         this.color_code = color_code;
@@ -47,27 +46,27 @@ public class Project {
         this.name = name;
     }
 
-    public String getColor_code() {
+    public Integer getColor_code() {
         return color_code;
     }
 
-    public void setColor_code(String color_code) {
+    public void setColor_code(Integer color_code) {
         this.color_code = color_code;
     }
 
-    public Integer getStart() {
+    public Long getStart() {
         return start;
     }
 
-    public void setStart(Integer start) {
+    public void setStart(Long start) {
         this.start = start;
     }
 
-    public Integer getEnd() {
+    public Long getEnd() {
         return end;
     }
 
-    public void setEnd(Integer end) {
+    public void setEnd(Long end) {
         this.end = end;
     }
 }

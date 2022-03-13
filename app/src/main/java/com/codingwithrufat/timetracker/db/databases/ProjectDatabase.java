@@ -9,25 +9,9 @@ import androidx.room.RoomDatabase;
 import com.codingwithrufat.timetracker.db.daos.ProjectDao;
 import com.codingwithrufat.timetracker.db.models.Project;
 
-@Database(entities = {Project.class}, version = 1)
-abstract class ProjectDatabase extends RoomDatabase {
+@Database(entities = {Project.class}, version = 1, exportSchema = false)
+public abstract class ProjectDatabase extends RoomDatabase {
 
     public abstract ProjectDao getProjectDao();
-    private ProjectDatabase INSTANCE = null;
-    public ProjectDatabase getProjectDatabase(Context context){
-
-        if (INSTANCE == null){
-
-            INSTANCE = Room.databaseBuilder(
-                    context.getApplicationContext(),
-                    ProjectDatabase.class,
-                    "PROJECT_DB"
-            ).allowMainThreadQueries().build();
-
-        }
-
-        return INSTANCE;
-
-    }
 
 }

@@ -46,11 +46,12 @@
                     app:cardCornerRadius="5dp" />
 
                 <EditText
+                    android:id="@+id/edit_add"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/background_gray_border"
-                    android:hint="Category"
+                    android:hint="Add Category"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="#4A4A4A" />
@@ -84,7 +85,7 @@
 
 
     <Button
-        android:id="@+id/button_addCategory"
+        android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
@@ -93,7 +94,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/blue_500"
-        android:text="Add Category"
+        android:text="Save Category"
         android:textAllCaps="false" />
 
 </RelativeLayout>

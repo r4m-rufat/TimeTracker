@@ -11,10 +11,9 @@ public class Category {
     @PrimaryKey(autoGenerate = true)
     private Integer id;
     private String name;
-    private String color_code;
+    private Integer color_code;
 
-    public Category(Integer id, String name, String color_code) {
-        this.id = id;
+    public Category(String name, Integer color_code) {
         this.name = name;
         this.color_code = color_code;
     }
@@ -35,11 +34,11 @@ public class Category {
         this.name = name;
     }
 
-    public String getColor_code() {
+    public Integer getColor_code() {
         return color_code;
     }
 
-    public void setColor_code(String color_code) {
+    public void setColor_code(Integer color_code) {
         this.color_code = color_code;
     }
 }

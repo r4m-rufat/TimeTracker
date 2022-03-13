@@ -39,7 +39,7 @@
                         android:padding="5dp"
                         android:text="Today: "
                         android:textColor="#80FFFFFF"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/txt_totalTime"
@@ -47,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:text="12:10:05"
                         android:textColor="#80FFFFFF"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -60,10 +60,10 @@
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginBottom="70dp"
                     android:text="Look Calendar"
                     android:textColor="#FFFFFF"
-                    android:textSize="17sp" />
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
@@ -77,151 +77,16 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
                 android:layout_weight="6.5"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/linear1"
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/project_card1"
-                        android:layout_width="15dp"
-                        android:layout_height="7dp"
-                        android:layout_centerVertical="true"
-                        app:cardBackgroundColor="#279300"
-                        app:cardCornerRadius="3dp" />
-
-                    <TextView
-                        android:id="@+id/project_name1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/project_card1"
-                        android:ellipsize="end"
-                        android:maxLength="10"
-                        android:text="PayPark"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/project_time1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_centerHorizontal="true"
-                        android:text="01:03:05"
-                        android:textColor="#CBFFFFFF"
-                        android:textSize="14sp" />
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        app:cardCornerRadius="8dp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/linear2"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/project_card2"
-                        android:layout_width="15dp"
-                        android:layout_height="7dp"
-                        android:layout_centerVertical="true"
-                        app:cardBackgroundColor="#930016"
-                        app:cardCornerRadius="3dp" />
-
-                    <TextView
-                        android:id="@+id/project_name2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/project_card2"
-                        android:ellipsize="end"
-                        android:maxLength="10"
-                        android:text="PayPark"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/project_time2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="01:03:05"
-                        android:textColor="#CBFFFFFF"
-                        android:textSize="14sp" />
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        app:cardCornerRadius="8dp" />
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/linear3"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/project_card3"
-                        android:layout_width="15dp"
-                        android:layout_height="7dp"
-                        android:layout_centerVertical="true"
-                        app:cardBackgroundColor="#EEFF00"
-                        app:cardCornerRadius="3dp" />
-
-                    <TextView
-                        android:id="@+id/project_name3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/project_card3"
-                        android:ellipsize="end"
-                        android:maxLength="10"
-                        android:text="PayPark"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/project_time3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="01:03:05"
-                        android:textColor="#CBFFFFFF"
-                        android:textSize="14sp" />
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        app:cardCornerRadius="8dp" />
-
-                </RelativeLayout>
-
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recyclerRunningProjects"/>
 
             </LinearLayout>
 
@@ -229,76 +94,24 @@
 
     </androidx.cardview.widget.CardView>
 
-    <RelativeLayout
-        android:gravity="center_vertical"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAddProject"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/card_wholeWork">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="15dp"
-                android:layout_height="7dp"
-                android:layout_centerVertical="true"
-                app:cardBackgroundColor="#279300"
-                app:cardCornerRadius="3dp"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:text="NSP"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imgArrowDown"
-                android:src="@drawable/ic_arrow_down"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txt_addNewProject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Add new project"
-            android:textColor="@color/blue_500"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/icon_add"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            app:tint="@color/black"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/txt_addNewProject"
-            android:src="@drawable/ic_add" />
-
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_wholeWork"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/button_addCategory"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/blue_500"
-        android:text="Add Category"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/blue_500"
+        android:text="Add Category"
         android:textAllCaps="false" />
 
 </RelativeLayout>
