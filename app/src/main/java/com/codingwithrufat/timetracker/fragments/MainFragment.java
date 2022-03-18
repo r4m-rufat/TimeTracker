@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.codingwithrufat.timetracker.R;
+import com.codingwithrufat.timetracker.adapters.ProjectsAdapter;
 import com.codingwithrufat.timetracker.adapters.RecyclerAddProject;
 import com.codingwithrufat.timetracker.adapters.RecyclerRunningProject;
 import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
@@ -45,7 +46,6 @@ public class MainFragment extends Fragment {
         clickedButtonAddCategory();
         setItemsToRecyclerAddProject();
         setItemsToRunningRecycler();
-
         return view;
 
     }
@@ -56,10 +56,10 @@ public class MainFragment extends Fragment {
         recyclerViewProjects = view.findViewById(R.id.recyclerAddProject);
         recyclerViewRunningProjects = view.findViewById(R.id.recyclerRunningProjects);
 
+
     }
 
     private void clickedButtonAddCategory(){
-
         button_addCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,10 +70,10 @@ public class MainFragment extends Fragment {
     }
 
     private void setItemsToRecyclerAddProject(){
-
         recyclerAddProject = new RecyclerAddProject(
                 requireContext(),
-                DatabaseBuilder.getCategoryDatabase(requireContext()).getCategoryDao().getAllCategories()
+                DatabaseBuilder.getCategoryDatabase(requireContext()).getCategoryDao().getAllCategories(),
+                DatabaseBuilder.getProjectDatabase(requireContext()).getProjectDao().getAllProjects()
                 );
 
         recyclerViewProjects.setHasFixedSize(true);

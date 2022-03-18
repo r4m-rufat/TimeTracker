@@ -1,5 +1,6 @@
 package com.codingwithrufat.timetracker.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
+import com.codingwithrufat.timetracker.db.converter.ListDataConverter;
 import com.codingwithrufat.timetracker.db.daos.CategoryDao;
 import com.codingwithrufat.timetracker.db.daos.ProjectDao;
 import com.codingwithrufat.timetracker.db.models.Category;
@@ -20,6 +22,9 @@ import com.codingwithrufat.timetracker.db.models.Project;
 import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorListener;
 import com.skydoves.colorpickerview.sliders.AlphaSlideBar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AddFragment extends Fragment {
@@ -97,6 +102,7 @@ public class AddFragment extends Fragment {
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (coming_project){
                     addProjectToLocalDB();
                 }else{
@@ -110,12 +116,12 @@ public class AddFragment extends Fragment {
 
     }
 
+    @SuppressLint("RestrictedApi")
     private void addProjectToLocalDB(){
 
         projectDao = DatabaseBuilder
                 .getProjectDatabase(requireContext())
                 .getProjectDao();
-
         projectDao.insertProject(new Project(
                 category_id,
                 edit_add.getText().toString(),
@@ -123,6 +129,7 @@ public class AddFragment extends Fragment {
                 System.currentTimeMillis(),
                 null
         ));
+
 
     }
 
@@ -133,6 +140,7 @@ public class AddFragment extends Fragment {
                .getCategoryDao();
 
         categoryDao.insertCategory(new Category(
+                category_id,
                 edit_add.getText().toString(),
                 category_color
         ));

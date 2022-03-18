@@ -86,7 +86,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/recyclerRunningProjects"/>
+                    android:id="@+id/recyclerRunningProjects"
+                    />
 
             </LinearLayout>
 
@@ -97,9 +98,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAddProject"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/card_wholeWork"
-        android:layout_marginTop="10dp"/>
+        android:layout_above="@+id/button_addCategory"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/button_addCategory"
