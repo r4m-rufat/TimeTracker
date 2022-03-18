@@ -25,13 +25,13 @@ public class ProjectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = FragmentProjectBinding.inflate(inflater);
-        List<Project> myProjectList =DatabaseBuilder.getProjectDatabase(requireContext()).getProjectDao().getAllProjects();
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false);
-        binding.myRecyclerView.setLayoutManager(layoutManager);
-        RecycProjectAdapter projectAdapter=new RecycProjectAdapter(myProjectList,requireContext());
-        binding.myRecyclerView.setAdapter(projectAdapter);
+            binding = FragmentProjectBinding.inflate(inflater);
+            List<Project> myProjectList =DatabaseBuilder.getProjectDatabase(requireContext()).getProjectDao().getAllProjects();
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false);
+            binding.myRecyclerViewProject.setLayoutManager(layoutManager);
+            RecycProjectAdapter projectAdapter=new RecycProjectAdapter(myProjectList,requireContext());
+            binding.myRecyclerViewProject.setAdapter(projectAdapter);
 
-        return binding.getRoot();
+            return binding.getRoot();
     }
 }
