@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
 import com.codingwithrufat.timetracker.db.models.Category;
-import com.codingwithrufat.timetracker.db.models.Project;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +31,7 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_layout,parent,false);
         return new ViewHolder(view);
     }
 
@@ -41,15 +39,16 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: we are here!");
 
-        //TODO add date to the date section from Database
+        //TODO add date to the date section from Database with the help of getDate method(there is no any date in the Room database)
 
 
+        //assigning of subRecyclerView
         RecycCategorySubAdapter subAdapter=new RecycCategorySubAdapter(myList);
         holder.subRecyclerView_category.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.subRecyclerView_category.setAdapter(subAdapter);
     }
 
-    private String getDay(Long start) {
+    private String getDate(Long start) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd");
         Date resultDate = new Date(start);
         return sdf.format(resultDate);
@@ -66,8 +65,8 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
         RecyclerView subRecyclerView_category;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            date=itemView.findViewById(R.id.categoryTime);
-            subRecyclerView_category=itemView.findViewById(R.id.category_subRecyclerView);
+            date=itemView.findViewById(R.id.projectTime);
+            subRecyclerView_category=itemView.findViewById(R.id.subRecyclerView);
         }
     }
 }

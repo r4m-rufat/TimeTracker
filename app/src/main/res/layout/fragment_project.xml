@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CategoryFragment">
+    tools:context=".fragments.ProjectAndCategoryFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -12,13 +12,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/returnbackicon"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
-                />
+                android:layout_marginLeft="10dp"
+                android:id="@+id/project_returnBack"
+                android:background="@drawable/returnbackicon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -27,36 +28,57 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:text="Ümumi statistika"
-                android:textStyle="bold"
                 android:textColor="#103052"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp"
-            android:layout_gravity="center_horizontal">
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_changeSection"
+                android:layout_gravity="center_horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:id="@+id/mainText"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Proyektlər"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/arrowDirection"
+                    android:backgroundTint="@color/black"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Kateqoriyalar"
                 android:textSize="16sp"
                 android:textColor="#000000"
+                android:visibility="gone"
                 android:fontFamily="sans-serif-medium"
-                android:text="Proyectlər"/>
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+                android:id="@+id/selectedText"/>
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/myRecyclerView_project"/>
+            android:id="@+id/myRecyclerView"/>
 
 
 

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
 import com.codingwithrufat.timetracker.db.models.Project;
 
 import java.text.SimpleDateFormat;
@@ -22,7 +21,7 @@ import java.util.List;
 public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapter.ViewHolder>{
     private String TAG="MyTagHere";
     private List<Project> myList;
-    Context context;
+    private Context context;
 
     public RecycProjectAdapter(List<Project> list,Context context){
         myList=list;
@@ -32,22 +31,24 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.project_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_layout,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: we are here!");
+
+        //Get date to the timer
         String day = getDay(myList.get(position).getStart());
         holder.date.setText(day);
 
 
 
-        //TODO write code for subRecyclerView
+        //code for recyclerView
         RecycProjectSubAdapter subAdapter=new RecycProjectSubAdapter(myList);
-        holder.subRecyclerView_project.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
-        holder.subRecyclerView_project.setAdapter(subAdapter);
+        holder.subRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+        holder.subRecyclerView.setAdapter(subAdapter);
     }
 
     private String getDay(Long start) {
@@ -64,11 +65,12 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView date;
-        RecyclerView subRecyclerView_project;
+        RecyclerView subRecyclerView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             date=itemView.findViewById(R.id.projectTime);
-            subRecyclerView_project=itemView.findViewById(R.id.project_subRecyclerView);
+            subRecyclerView=itemView.findViewById(R.id.subRecyclerView);
         }
     }
 }

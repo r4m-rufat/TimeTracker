@@ -23,7 +23,6 @@ public class DatabaseBuilder {
     }
 
     public static ProjectDatabase getProjectDatabase(Context context){
-        Log.d(TAG, "getProjectDatabase: ");
         return Room.databaseBuilder(
                 context,
                 ProjectDatabase.class,

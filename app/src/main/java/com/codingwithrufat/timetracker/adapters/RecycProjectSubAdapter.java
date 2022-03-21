@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSubAdapter.ViewHolder>{
-    List<Project> subList;
+    private List<Project> subList;
 
     public RecycProjectSubAdapter(List<Project> list){
         subList=list;
@@ -28,6 +28,7 @@ public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSub
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sub_project,parent,false);
+
         return new ViewHolder(view);
     }
 
@@ -37,6 +38,7 @@ public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSub
         holder.timer.setText(getTimerAsFormat(subList.get(position).getStart()));
         holder.category.setText(subList.get(position).getColor_code());
         holder.project.setText(subList.get(position).getName());
+
     }
 
     private String getTimerAsFormat(Long start) {
