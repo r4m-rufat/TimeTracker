@@ -44,7 +44,16 @@
         android:id="@+id/projectFragment2"
         android:name="com.codingwithrufat.timetracker.fragments.ProjectAndCategoryFragment"
         android:label="fragment_project"
-        tools:layout="@layout/fragment_project" />
+        tools:layout="@layout/fragment_project" >
+        <action
+            android:id="@+id/action_projectFragment2_to_generalStatisticFragment"
+            app:destination="@id/generalStatisticFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalStatisticFragment"
+        android:name="com.codingwithrufat.timetracker.fragments.GeneralStatisticFragment"
+        android:label="fragment_general_statistic"
+        tools:layout="@layout/fragment_general_statistic" />
 
 
 </navigation>

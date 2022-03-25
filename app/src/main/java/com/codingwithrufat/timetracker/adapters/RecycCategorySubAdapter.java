@@ -1,5 +1,8 @@
 package com.codingwithrufat.timetracker.adapters;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
@@ -20,9 +25,11 @@ import java.util.List;
 
 public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategorySubAdapter.ViewHolder>{
     List<Category> subList;
+    Context mContext;
 
-    public RecycCategorySubAdapter(List<Category> list){
+    public RecycCategorySubAdapter(List<Category> list,Context context){
         subList=list;
+        mContext = context;
     }
 
     @NonNull
@@ -34,12 +41,17 @@ public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategoryS
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageView.setBackgroundColor(subList.get(position).getColor_code());
+        changeColorOfTargetResourceFile(subList.get(position).getColor_code());
+        holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.selected_colors));
         //TODO add time to the timer from Database
-        holder.category.setText(subList.get(position).getColor_code());
+        //TODO add main values to the recyclerView
+        //TODO to format long value, use the getTimerAsFormat method below(There is no any data timers to format)
+    }
 
-
-        //TODO to format long value, use the getTimerAsFormat method below
+    private void changeColorOfTargetResourceFile(int targetColor) {
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(mContext, R.drawable.selected_colors);
+        Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
+        DrawableCompat.setTint(wrappedDrawable, targetColor);
     }
 
     private String getTimerAsFormat(Long start) {

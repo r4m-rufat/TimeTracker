@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProjectAndCategoryFragment">
+    tools:context=".fragments.GeneralStatisticFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -14,24 +14,13 @@
             android:layout_height="50dp">
 
             <ImageButton
+                android:id="@+id/project_returnBackPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:id="@+id/project_returnBack"
                 android:background="@drawable/returnbackicon" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:text="Ümumi statistika"
-                android:textColor="#103052"
-                android:id="@+id/genericStatistic"
-                android:textSize="16sp"
-                android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout
@@ -44,13 +33,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/linear_changeSection"
+                android:id="@+id/linear_changeSectionPro"
                 android:layout_gravity="center_horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:id="@+id/mainText"
+                    android:id="@+id/mainTextPro"
                     android:textColor="#000000"
                     android:fontFamily="sans-serif-medium"
                     android:text="Proyektlər"/>
@@ -58,7 +47,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/arrowDirection"
+                    android:id="@+id/arrowDirectionPro"
                     android:backgroundTint="@color/black"
                     android:background="@drawable/ic_arrow_down"/>
 
@@ -72,14 +61,47 @@
                 android:textColor="#000000"
                 android:visibility="gone"
                 android:fontFamily="sans-serif-medium"
-                android:id="@+id/selectedText"/>
+                android:id="@+id/selectedTextPro"/>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daily"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:id="@+id/daily"
+                android:textColor="#103052"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Həftəlik"
+                android:layout_weight="1"
+                android:id="@+id/weekly"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textColor="#103052"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aylıq"
+                android:layout_weight="1"
+                android:id="@+id/monthly"
+                android:gravity="center_horizontal"
+                android:textColor="#103052"
+                android:textSize="16sp"
+                />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/myRecyclerView"/>
+            android:id="@+id/myRecyclerViewPro"/>
 
 
 

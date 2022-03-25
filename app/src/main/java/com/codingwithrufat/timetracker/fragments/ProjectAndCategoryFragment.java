@@ -1,9 +1,10 @@
 package com.codingwithrufat.timetracker.fragments;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,7 +22,6 @@ import com.codingwithrufat.timetracker.db.models.Category;
 import com.codingwithrufat.timetracker.db.models.Project;
 
 import java.util.List;
-import java.util.Objects;
 
 public class ProjectAndCategoryFragment extends Fragment {
     private FragmentProjectBinding binding;
@@ -62,9 +62,16 @@ public class ProjectAndCategoryFragment extends Fragment {
                 }
                 else{
                     binding.selectedText.setVisibility(View.GONE);
-                    binding.arrowDirection.setBackgroundDrawable(requireContext().getResources().getDrawable(R.drawable.ic_baseline_keyboard_arrow_down_24));
+                    binding.arrowDirection.setBackgroundDrawable(requireContext().getResources().getDrawable(R.drawable.ic_arrow_down));
                     isClicked = false;
                 }
+            }
+        });
+
+        binding.genericStatistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_projectFragment2_to_generalStatisticFragment);
             }
         });
 
@@ -72,15 +79,15 @@ public class ProjectAndCategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 binding.selectedText.setVisibility(View.GONE);
-                binding.arrowDirection.setBackgroundDrawable(requireContext().getResources().getDrawable(R.drawable.ic_baseline_keyboard_arrow_down_24));
+                binding.arrowDirection.setBackgroundDrawable(requireContext().getResources().getDrawable(R.drawable.ic_arrow_down));
                 isClicked = false;
-                if(isProjectSection){
+                if (isProjectSection) {
                     moveToCategoryAdapter();
 
                     isProjectSection = false;
                     binding.mainText.setText("Kateqoriyalar");
                     binding.selectedText.setText("Proyektlər");
-                }else{
+                } else {
                     moveToProjectAdapter();
 
                     isProjectSection = true;
@@ -89,6 +96,9 @@ public class ProjectAndCategoryFragment extends Fragment {
                 }
             }
         });
+
+
+
     }
 
     private void moveToProjectAdapter() {

@@ -37,7 +37,7 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder: we are here!");
+        Log.d(TAG, "onBindViewHolder: we are here!"+ myList.size());
 
         //Get date to the timer
         String day = getDay(myList.get(position).getStart());

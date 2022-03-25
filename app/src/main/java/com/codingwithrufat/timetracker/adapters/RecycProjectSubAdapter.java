@@ -19,6 +19,7 @@ import java.util.List;
 
 public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSubAdapter.ViewHolder>{
     private List<Project> subList;
+    private String TAG = "MyTagHere";
 
     public RecycProjectSubAdapter(List<Project> list){
         subList=list;
@@ -38,6 +39,7 @@ public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSub
         holder.timer.setText(getTimerAsFormat(subList.get(position).getStart()));
         holder.category.setText(subList.get(position).getColor_code());
         holder.project.setText(subList.get(position).getName());
+        Log.d(TAG, "onBindViewHolder: it is almost done ");
 
     }
 

@@ -43,7 +43,7 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
 
 
         //assigning of subRecyclerView
-        RecycCategorySubAdapter subAdapter=new RecycCategorySubAdapter(myList);
+        RecycCategorySubAdapter subAdapter=new RecycCategorySubAdapter(myList,context);
         holder.subRecyclerView_category.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.subRecyclerView_category.setAdapter(subAdapter);
     }
