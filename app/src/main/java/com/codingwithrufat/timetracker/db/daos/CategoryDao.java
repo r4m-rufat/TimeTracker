@@ -19,6 +19,7 @@ public interface CategoryDao {
     @Insert
     void insertCategory(Category category);
 
+
    @Update(entity = Category.class)
    void updatecategory(Category category);
 }

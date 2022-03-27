@@ -18,6 +18,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    viewBinding{
+        enabled=true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -59,5 +63,9 @@ dependencies {
 
     //json
     implementation 'com.google.code.gson:gson:2.8.7'
+
+    //for debugging
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+
 
 }

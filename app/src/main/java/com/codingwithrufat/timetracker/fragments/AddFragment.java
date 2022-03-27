@@ -2,6 +2,7 @@ package com.codingwithrufat.timetracker.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,6 +123,8 @@ public class AddFragment extends Fragment {
         projectDao = DatabaseBuilder
                 .getProjectDatabase(requireContext())
                 .getProjectDao();
+
+        Log.d("MyTagHere", "addProjectToLocalDB: "+ category_color);
         projectDao.insertProject(new Project(
                 category_id,
                 edit_add.getText().toString(),
