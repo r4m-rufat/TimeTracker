@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/drawable/background_gray_border.xml" value="0.28489583333333335" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/drawable/ic_add.xml" value="0.2212962962962963" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/drawable/ic_start_play.xml" value="0.28489583333333335" />
+        <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/drawable/ic_stop.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/activity_main.xml" value="0.26875" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/activity_splash.xml" value="0.26875" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/fragment_add.xml" value="0.26875" />
+        <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/fragment_login.xml" value="0.26875" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/fragment_main.xml" value="0.26875" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/fragment_projects.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/Durkhan/Studi oProjects/TimeTracker/app/src/main/res/layout/layout_add_new_project_caterogy_items.xml" value="0.26875" />

@@ -5,8 +5,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.codingwithrufat.timetracker.db.models.Category;
-import com.codingwithrufat.timetracker.db.models.Project;
+import com.codingwithrufat.timetracker.dataModels.Category;
 
 import java.util.List;
 
@@ -19,6 +18,6 @@ public interface CategoryDao {
     @Insert
     void insertCategory(Category category);
 
-   @Update(entity = Category.class)
-   void updatecategory(Category category);
+    @Update(entity = Category.class)
+    void updatecategory(Category category);
 }

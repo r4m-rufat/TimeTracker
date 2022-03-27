@@ -1,4 +1,4 @@
-package com.codingwithrufat.timetracker.db.models;
+package com.codingwithrufat.timetracker.dataModels;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -12,14 +12,16 @@ public class Project {
     private String name;
     private Integer color_code;
     private Long start;
-    private Long end;
+    private Long ended;
+    private boolean playing;
 
-    public Project(Integer category_id, String name, Integer color_code, Long start, Long end) {
+    public Project(Integer category_id, String name, Integer color_code, Long start, Long ended,boolean playing) {
         this.category_id = category_id;
         this.name = name;
         this.color_code = color_code;
         this.start = start;
-        this.end = end;
+        this.ended=ended;
+        this.playing=playing;
     }
 
     public Integer getId() {
@@ -62,11 +64,21 @@ public class Project {
         this.start = start;
     }
 
-    public Long getEnd() {
-        return end;
+
+
+    public boolean isPlaying() {
+        return playing;
     }
 
-    public void setEnd(Long end) {
-        this.end = end;
+    public void setPlaying(boolean playing) {
+        this.playing = playing;
+    }
+
+    public Long getEnded() {
+        return ended;
+    }
+
+    public void setEnded(Long ended) {
+        this.ended = ended;
     }
 }

@@ -2,7 +2,7 @@ package com.codingwithrufat.timetracker.db.converter;
 
 import androidx.room.TypeConverter;
 
-import com.codingwithrufat.timetracker.db.models.Project;
+import com.codingwithrufat.timetracker.dataModels.Project;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

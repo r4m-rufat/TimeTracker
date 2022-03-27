@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linear1"
+    android:id="@+id/running_relative"
     android:layout_width="match_parent"
     android:layout_height="60dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/project_card1"
-        android:layout_width="15dp"
-        android:layout_height="7dp"
+        android:id="@+id/project_card"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
         android:layout_centerVertical="true"
         app:cardBackgroundColor="#279300"
-        app:cardCornerRadius="3dp" />
+        app:cardCornerRadius="5dp" />
 
     <TextView
-        android:id="@+id/project_name1"
+        android:id="@+id/running_project_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/project_card1"
+        android:layout_toRightOf="@+id/project_card"
         android:ellipsize="end"
         android:maxLength="10"
         android:text="PayPark"
@@ -28,19 +28,20 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/project_time1"
+        android:id="@+id/project_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/project_name1"
+        android:layout_toRightOf="@+id/running_project_name"
         android:text="01:03:05"
         android:textColor="#CBFFFFFF"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_start"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
