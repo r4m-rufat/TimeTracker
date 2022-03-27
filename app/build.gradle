@@ -62,4 +62,8 @@ dependencies {
     implementation "com.github.skydoves:colorpickerview:2.2.4"
 
 
+    //for debugging
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+
+
 }

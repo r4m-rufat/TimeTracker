@@ -46,7 +46,8 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
 
 
         //code for recyclerView
-        RecycProjectSubAdapter subAdapter=new RecycProjectSubAdapter(myList);
+        Log.d(TAG, "moveToProjectAdapter: secondPage:"+myList.get(0).getColor_code());
+        RecycProjectSubAdapter subAdapter=new RecycProjectSubAdapter(myList,context);
         holder.subRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.subRecyclerView.setAdapter(subAdapter);
     }

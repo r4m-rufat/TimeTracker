@@ -35,7 +35,7 @@ public class ProjectAndCategoryFragment extends Fragment {
 
             binding = FragmentProjectBinding.inflate(inflater);
 
-
+            moveToProjectAdapter();
             setClickListeners();
 
 
@@ -104,6 +104,7 @@ public class ProjectAndCategoryFragment extends Fragment {
     private void moveToProjectAdapter() {
         Log.d(TAG, "moveToProjectAdapter: call the RecycProjectAdapter");
         List<Project> myProjectList =DatabaseBuilder.getProjectDatabase(requireContext()).getProjectDao().getAllProjects();
+        Log.d(TAG, "moveToProjectAdapter: fistPage:"+myProjectList.get(0).getColor_code());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false);
         binding.myRecyclerView.setLayoutManager(layoutManager);
         RecycProjectAdapter projectAdapter=new RecycProjectAdapter(myProjectList,requireContext());

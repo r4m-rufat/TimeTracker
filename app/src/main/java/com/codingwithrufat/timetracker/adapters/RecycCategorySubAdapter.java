@@ -44,7 +44,7 @@ public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategoryS
         changeColorOfTargetResourceFile(subList.get(position).getColor_code());
         holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.selected_colors));
         //TODO add time to the timer from Database
-        //TODO add main values to the recyclerView
+        holder.category.setText(subList.get(position).getName());
         //TODO to format long value, use the getTimerAsFormat method below(There is no any data timers to format)
     }
 

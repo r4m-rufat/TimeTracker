@@ -47,7 +47,7 @@ public class GenericStatisticAdapter extends RecyclerView.Adapter<GenericStatist
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if(isProjectSection){
             holder.date.setText(getFormatDate(projectList.get(position).getStart()));
-            RecycProjectSubAdapter subAdapter = new RecycProjectSubAdapter(projectList);
+            RecycProjectSubAdapter subAdapter = new RecycProjectSubAdapter(projectList,mContext);
             holder.myRecyclerView.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false));
             holder.myRecyclerView.setAdapter(subAdapter);
         }else{

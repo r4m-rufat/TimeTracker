@@ -23,6 +23,7 @@ class GeneralStatisticFragment : Fragment() {
 
         binding = FragmentGeneralStatisticBinding.inflate(inflater)
         setClickListeners()
+        assignTheRecyclerView()
 
         return binding.root
     }
