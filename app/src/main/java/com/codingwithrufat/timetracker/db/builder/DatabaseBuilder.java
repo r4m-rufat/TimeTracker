@@ -7,6 +7,8 @@ import androidx.room.Room;
 
 import com.codingwithrufat.timetracker.db.databases.CategoryDatabase;
 import com.codingwithrufat.timetracker.db.databases.ProjectDatabase;
+import com.codingwithrufat.timetracker.db.databases.TimeCategoryDatabase;
+import com.codingwithrufat.timetracker.db.databases.TimeProjectDatabase;
 
 public class DatabaseBuilder {
 
@@ -31,6 +33,24 @@ public class DatabaseBuilder {
 
     }
 
+    public static TimeCategoryDatabase getTimeCategoryDatabase(Context context){
 
+        return Room.databaseBuilder(
+                context,
+                TimeCategoryDatabase.class,
+                "TIME_CATEGORY_DB"
+        ).allowMainThreadQueries().build();
+
+    }
+
+    public static TimeProjectDatabase getTimeProjectDatabase(Context context){
+
+        return Room.databaseBuilder(
+                context,
+                TimeProjectDatabase.class,
+                "TIME_PROJECT_DB"
+        ).allowMainThreadQueries().build();
+
+    }
 
 }

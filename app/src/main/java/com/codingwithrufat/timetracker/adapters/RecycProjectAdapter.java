@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.db.models.Project;
+import com.codingwithrufat.timetracker.dataModels.Project;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,8 +40,8 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
         Log.d(TAG, "onBindViewHolder: we are here!"+ myList.size());
 
         //Get date to the timer
-        String day = getDay(myList.get(position).getStart());
-        holder.date.setText(day);
+//        String day = getDay(myList.get(position).getStart());
+//        holder.date.setText(day);
 
 
 

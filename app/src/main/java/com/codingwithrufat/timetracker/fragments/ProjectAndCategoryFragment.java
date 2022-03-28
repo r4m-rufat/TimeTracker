@@ -16,10 +16,10 @@ import android.view.ViewGroup;
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.adapters.RecycCategoryAdapter;
 import com.codingwithrufat.timetracker.adapters.RecycProjectAdapter;
+import com.codingwithrufat.timetracker.dataModels.Category;
+import com.codingwithrufat.timetracker.dataModels.Project;
 import com.codingwithrufat.timetracker.databinding.FragmentProjectBinding;
 import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
-import com.codingwithrufat.timetracker.db.models.Category;
-import com.codingwithrufat.timetracker.db.models.Project;
 
 import java.util.List;
 

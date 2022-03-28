@@ -15,7 +15,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.db.models.Project;
+import com.codingwithrufat.timetracker.dataModels.Project;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,9 +41,9 @@ public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSub
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "moveToProjectAdapter: thirdPage:"+subList.get(3).getColor_code());
+        Log.d(TAG, "moveToProjectAdapter: thirdPage:"+subList.get(position).getColor_code());
         changeColorOfTargetResourceFile(subList.get(position).getColor_code());
-        holder.timer.setText(getTimerAsFormat(subList.get(position).getStart()));
+//        holder.timer.setText(getTimerAsFormat(subList.get(position).getStart()));
         holder.project.setText(subList.get(position).getName());
         Log.d(TAG, "onBindViewHolder: it is almost done ");
 

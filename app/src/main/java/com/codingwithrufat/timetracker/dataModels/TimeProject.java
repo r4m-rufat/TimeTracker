@@ -1,25 +1,26 @@
-package com.codingwithrufat.timetracker.db.models;
+package com.codingwithrufat.timetracker.dataModels;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "PROJECT_TABLE")
-public class Project {
+@Entity(tableName = "TIME_PROJECT_TABLE")
+public class TimeProject {
 
     @PrimaryKey(autoGenerate = true)
     private Integer id;
     private Integer category_id;
     private String name;
     private Integer color_code;
-    private Long start;
-    private Long end;
+    private String project_date;
+    private String project_running_time;
 
-    public Project(Integer category_id, String name, Integer color_code, Long start, Long end) {
+    public TimeProject(Integer id, Integer category_id, String name, Integer color_code, String project_date, String project_running_time) {
+        this.id = id;
         this.category_id = category_id;
         this.name = name;
         this.color_code = color_code;
-        this.start = start;
-        this.end = end;
+        this.project_date = project_date;
+        this.project_running_time = project_running_time;
     }
 
     public Integer getId() {
@@ -54,19 +55,19 @@ public class Project {
         this.color_code = color_code;
     }
 
-    public Long getStart() {
-        return start;
+    public String getProject_date() {
+        return project_date;
     }
 
-    public void setStart(Long start) {
-        this.start = start;
+    public void setProject_date(String project_date) {
+        this.project_date = project_date;
     }
 
-    public Long getEnd() {
-        return end;
+    public String getProject_running_time() {
+        return project_running_time;
     }
 
-    public void setEnd(Long end) {
-        this.end = end;
+    public void setProject_running_time(String project_running_time) {
+        this.project_running_time = project_running_time;
     }
 }

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.db.models.Category;
+import com.codingwithrufat.timetracker.dataModels.Category;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

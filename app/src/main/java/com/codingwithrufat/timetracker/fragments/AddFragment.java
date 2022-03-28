@@ -15,17 +15,13 @@ import androidx.navigation.Navigation;
 
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
-import com.codingwithrufat.timetracker.db.converter.ListDataConverter;
 import com.codingwithrufat.timetracker.db.daos.CategoryDao;
 import com.codingwithrufat.timetracker.db.daos.ProjectDao;
-import com.codingwithrufat.timetracker.db.models.Category;
-import com.codingwithrufat.timetracker.db.models.Project;
+import com.codingwithrufat.timetracker.dataModels.Category;
+import com.codingwithrufat.timetracker.dataModels.Project;
 import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorListener;
 import com.skydoves.colorpickerview.sliders.AlphaSlideBar;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class AddFragment extends Fragment {
@@ -129,9 +125,11 @@ public class AddFragment extends Fragment {
                 category_id,
                 edit_add.getText().toString(),
                 category_color,
-                System.currentTimeMillis(),
-                null
+                null,
+                0L,
+                false
         ));
+
 
 
     }
@@ -141,7 +139,6 @@ public class AddFragment extends Fragment {
        categoryDao = DatabaseBuilder
                .getCategoryDatabase(requireContext())
                .getCategoryDao();
-
         categoryDao.insertCategory(new Category(
                 category_id,
                 edit_add.getText().toString(),

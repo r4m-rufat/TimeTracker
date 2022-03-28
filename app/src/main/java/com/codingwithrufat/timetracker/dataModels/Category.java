@@ -1,4 +1,4 @@
-package com.codingwithrufat.timetracker.db.models;
+package com.codingwithrufat.timetracker.dataModels;
 
 import androidx.room.Embedded;
 import androidx.room.Entity;
