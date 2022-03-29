@@ -18,4 +18,10 @@ public interface TimeProjectDao {
     @Insert
     void insertProject(TimeProject timeProject);
 
+    @Query("SELECT DISTINCT project_date FROM TIME_PROJECT_TABLE ORDER BY id DESC")
+    List<String> getUniqueDateProject();
+
+    @Query("SELECT * FROM TIME_PROJECT_TABLE WHERE project_date = :date")
+    List<TimeProject> getDataDueToDateProject(String date);
+
 }

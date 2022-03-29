@@ -1,9 +1,7 @@
 package com.codingwithrufat.timetracker.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +14,8 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.dataModels.Category;
 import com.codingwithrufat.timetracker.dataModels.TimeCategory;
+import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,8 +25,8 @@ public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategoryS
     List<TimeCategory> subList;
     Context mContext;
 
-    public RecycCategorySubAdapter(List<TimeCategory> list,Context context){
-        subList=list;
+    public RecycCategorySubAdapter(String date,Context context){
+        subList= DatabaseBuilder.getTimeCategoryDatabase(context).getTimeCategoryDao().getDataDueToDateCategory(date);
         mContext = context;
     }
 

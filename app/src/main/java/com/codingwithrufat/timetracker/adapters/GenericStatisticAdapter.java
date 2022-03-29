@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
-import com.codingwithrufat.timetracker.dataModels.Category;
-import com.codingwithrufat.timetracker.dataModels.Project;
-import com.codingwithrufat.timetracker.dataModels.TimeCategory;
 import com.codingwithrufat.timetracker.dataModels.TimeProject;
 import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
 
@@ -24,16 +21,16 @@ import java.util.List;
 public class GenericStatisticAdapter extends RecyclerView.Adapter<GenericStatisticAdapter.ViewHolder>{
     boolean isProjectSection;
     String dueTo;
-    private List<TimeProject> projectList;
-    private List<TimeCategory> categoryList;
+    private List<String> projectList;
+    private List<String> categoryList;
     private Context mContext;
 
     public GenericStatisticAdapter(Context context, boolean isProjectSection, String dueTo){
         this.isProjectSection = isProjectSection;
         this.dueTo = dueTo;
         mContext = context;
-        projectList = DatabaseBuilder.getTimeProjectDatabase(context).getTimeProjectDao().getAllProjects();
-        categoryList = DatabaseBuilder.getTimeCategoryDatabase(context).getTimeCategoryDao().getAllCategories();
+        projectList = DatabaseBuilder.getTimeProjectDatabase(context).getTimeProjectDao().getUniqueDateProject();
+        categoryList = DatabaseBuilder.getTimeCategoryDatabase(context).getTimeCategoryDao().getUniqueDateCategory();
 
     }
 
@@ -48,16 +45,19 @@ public class GenericStatisticAdapter extends RecyclerView.Adapter<GenericStatist
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if(isProjectSection){
-            holder.date.setText(getFormatDate(projectList.get(position).getProject_date()));
-            RecycProjectSubAdapter subAdapter = new RecycProjectSubAdapter(projectList,mContext);
+            //date
+            holder.date.setText(projectList.get(position));
+
+            //recyclerView
+            RecycProjectSubAdapter subAdapter = new RecycProjectSubAdapter(projectList.get(position),mContext);
             holder.myRecyclerView.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false));
             holder.myRecyclerView.setAdapter(subAdapter);
         }else{
             //date
-            holder.date.setText(getFormatDate(categoryList.get(position).getCategory_date()));
+            holder.date.setText(categoryList.get(position));
 
             //RecyclerView
-            RecycCategorySubAdapter subAdapter = new RecycCategorySubAdapter(categoryList,mContext);
+            RecycCategorySubAdapter subAdapter = new RecycCategorySubAdapter(categoryList.get(position),mContext);
             holder.myRecyclerView.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false));
             holder.myRecyclerView.setAdapter(subAdapter);
 

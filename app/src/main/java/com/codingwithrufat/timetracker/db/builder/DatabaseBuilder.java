@@ -20,7 +20,8 @@ public class DatabaseBuilder {
                 context,
                 CategoryDatabase.class,
                 "CATEGORY_DB"
-        ).allowMainThreadQueries().build();
+        ).allowMainThreadQueries()
+                .build();
 
     }
 

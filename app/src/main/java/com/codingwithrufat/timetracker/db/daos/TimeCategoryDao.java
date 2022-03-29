@@ -18,4 +18,9 @@ public interface TimeCategoryDao {
     @Insert
     void insertCategory(TimeCategory timeCategory);
 
+    @Query("SELECT DISTINCT category_date FROM TIME_CATEGORY_TABLE ORDER BY id DESC")
+    List<String> getUniqueDateCategory();
+
+    @Query("SELECT * FROM TIME_CATEGORY_TABLE WHERE category_date = :date ORDER BY id DESC")
+    List<TimeCategory> getDataDueToDateCategory(String date);
 }

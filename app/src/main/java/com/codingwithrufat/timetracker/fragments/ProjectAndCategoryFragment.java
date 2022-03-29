@@ -2,7 +2,6 @@ package com.codingwithrufat.timetracker.fragments;
 
 import android.os.Bundle;
 
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +15,6 @@ import android.view.ViewGroup;
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.adapters.RecycCategoryAdapter;
 import com.codingwithrufat.timetracker.adapters.RecycProjectAdapter;
-import com.codingwithrufat.timetracker.dataModels.Category;
-import com.codingwithrufat.timetracker.dataModels.Project;
-import com.codingwithrufat.timetracker.dataModels.TimeCategory;
 import com.codingwithrufat.timetracker.dataModels.TimeProject;
 import com.codingwithrufat.timetracker.databinding.FragmentProjectBinding;
 import com.codingwithrufat.timetracker.db.builder.DatabaseBuilder;
@@ -105,16 +101,16 @@ public class ProjectAndCategoryFragment extends Fragment {
 
     private void moveToProjectAdapter() {
         Log.d(TAG, "moveToProjectAdapter: call the RecycProjectAdapter");
-        List<TimeProject> myProjectList =DatabaseBuilder.getTimeProjectDatabase(requireContext()).getTimeProjectDao().getAllProjects();
+        List<String> myDateList =DatabaseBuilder.getTimeProjectDatabase(requireContext()).getTimeProjectDao().getUniqueDateProject();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false);
         binding.myRecyclerView.setLayoutManager(layoutManager);
-        RecycProjectAdapter projectAdapter=new RecycProjectAdapter(myProjectList,requireContext());
+        RecycProjectAdapter projectAdapter=new RecycProjectAdapter(myDateList,requireContext());
         binding.myRecyclerView.setAdapter(projectAdapter);
     }
 
     private void moveToCategoryAdapter() {
         Log.d(TAG, "moveToCategoryAdapter: call the RecycCategoryAdapter");
-        List<TimeCategory> myProjectList = DatabaseBuilder.getTimeCategoryDatabase(requireContext()).getTimeCategoryDao().getAllCategories();
+        List<String> myProjectList = DatabaseBuilder.getTimeCategoryDatabase(requireContext()).getTimeCategoryDao().getUniqueDateCategory();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false);
         binding.myRecyclerView.setLayoutManager(layoutManager);
         RecycCategoryAdapter categoryAdapter=new RecycCategoryAdapter(myProjectList,requireContext());

@@ -21,10 +21,10 @@ import java.util.List;
 
 public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdapter.ViewHolder>{
     private String TAG="MyTagHere";
-    private List<TimeCategory> myList;
+    private List<String> myList;
     Context context;
 
-    public RecycCategoryAdapter(List<TimeCategory> list, Context context){
+    public RecycCategoryAdapter(List<String> list, Context context){
         myList=list;
         this.context = context;
     }
@@ -41,20 +41,13 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
         Log.d(TAG, "onBindViewHolder: we are here!");
 
         //date
-        holder.date.setText(getDate(myList.get(position).getCategory_date()));
+        holder.date.setText(myList.get(position));
 
 
         //assigning of subRecyclerView
-        RecycCategorySubAdapter subAdapter=new RecycCategorySubAdapter(myList,context);
+        RecycCategorySubAdapter subAdapter=new RecycCategorySubAdapter(myList.get(position),context);
         holder.subRecyclerView_category.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.subRecyclerView_category.setAdapter(subAdapter);
-    }
-
-    private String getDate(String date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd");
-        Date resultDate = new Date(date);
-        return sdf.format(resultDate);
-
     }
 
     @Override

@@ -21,11 +21,11 @@ import java.util.List;
 
 public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapter.ViewHolder>{
     private String TAG="MyTagHere";
-    private List<TimeProject> myList;
+    private List<String> myDateList;
     private Context context;
 
-    public RecycProjectAdapter(List<TimeProject> list, Context context){
-        myList=list;
+    public RecycProjectAdapter(List<String> list, Context context){
+        myDateList=list;
         this.context = context;
     }
 
@@ -38,31 +38,23 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder: we are here!"+ myList.size());
 
 
         //date
-        String day = getDay(myList.get(position).getProject_date());
-        holder.date.setText(day);
+        holder.date.setText(myDateList.get(position));
 
 
 
         //code for recyclerView
-        RecycProjectSubAdapter subAdapter=new RecycProjectSubAdapter(myList,context);
+        RecycProjectSubAdapter subAdapter=new RecycProjectSubAdapter(myDateList.get(position),context);
         holder.subRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.subRecyclerView.setAdapter(subAdapter);
     }
 
-    private String getDay(String start) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd");
-        Date resultDate = new Date(Long.getLong(start));
-        return sdf.format(resultDate);
-
-    }
 
     @Override
     public int getItemCount() {
-        return myList.size();
+        return myDateList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
