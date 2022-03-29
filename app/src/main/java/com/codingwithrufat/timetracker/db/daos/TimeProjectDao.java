@@ -13,7 +13,7 @@ import java.util.List;
 public interface TimeProjectDao {
 
     @Query("SELECT * FROM TIME_PROJECT_TABLE ORDER BY id DESC")
-    List<Project> getAllProjects();
+    List<TimeProject> getAllProjects();
 
     @Insert
     void insertProject(TimeProject timeProject);

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.dataModels.Project;
+import com.codingwithrufat.timetracker.dataModels.TimeProject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,10 +21,10 @@ import java.util.List;
 
 public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapter.ViewHolder>{
     private String TAG="MyTagHere";
-    private List<Project> myList;
+    private List<TimeProject> myList;
     private Context context;
 
-    public RecycProjectAdapter(List<Project> list,Context context){
+    public RecycProjectAdapter(List<TimeProject> list, Context context){
         myList=list;
         this.context = context;
     }
@@ -39,22 +40,22 @@ public class RecycProjectAdapter extends RecyclerView.Adapter<RecycProjectAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: we are here!"+ myList.size());
 
-        //Get date to the timer
-//        String day = getDay(myList.get(position).getStart());
-//        holder.date.setText(day);
+
+        //date
+        String day = getDay(myList.get(position).getProject_date());
+        holder.date.setText(day);
 
 
 
         //code for recyclerView
-        Log.d(TAG, "moveToProjectAdapter: secondPage:"+myList.get(0).getColor_code());
         RecycProjectSubAdapter subAdapter=new RecycProjectSubAdapter(myList,context);
         holder.subRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.subRecyclerView.setAdapter(subAdapter);
     }
 
-    private String getDay(Long start) {
+    private String getDay(String start) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd");
-        Date resultDate = new Date(start);
+        Date resultDate = new Date(Long.getLong(start));
         return sdf.format(resultDate);
 
     }

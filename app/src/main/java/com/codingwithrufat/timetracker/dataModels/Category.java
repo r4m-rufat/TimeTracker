@@ -5,7 +5,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.codingwithrufat.timetracker.db.converter.ListDataConverter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

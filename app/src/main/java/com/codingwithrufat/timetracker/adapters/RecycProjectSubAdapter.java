@@ -16,17 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.dataModels.Project;
+import com.codingwithrufat.timetracker.dataModels.TimeProject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSubAdapter.ViewHolder>{
-    private List<Project> subList;
+    private List<TimeProject> subList;
     private String TAG = "MyTagHere";
     private Context mContext;
 
-    public RecycProjectSubAdapter(List<Project> list,Context mContext){
+    public RecycProjectSubAdapter(List<TimeProject> list,Context mContext){
         subList=list;
         this.mContext=mContext;
     }
@@ -41,17 +42,17 @@ public class RecycProjectSubAdapter extends RecyclerView.Adapter<RecycProjectSub
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "moveToProjectAdapter: thirdPage:"+subList.get(position).getColor_code());
+
         changeColorOfTargetResourceFile(subList.get(position).getColor_code());
-//        holder.timer.setText(getTimerAsFormat(subList.get(position).getStart()));
+        holder.timer.setText(getTimerAsFormat(subList.get(position).getProject_date()));
+        holder.category.setText(subList.get(position).getCategory_id());
         holder.project.setText(subList.get(position).getName());
-        Log.d(TAG, "onBindViewHolder: it is almost done ");
 
     }
 
-    private String getTimerAsFormat(Long start) {
+    private String getTimerAsFormat(String start) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        Date resultDate = new Date(start);
+        Date resultDate = new Date(Long.getLong(start));
         return sdf.format(resultDate);
     }
 

@@ -15,7 +15,7 @@ public class Project {
     private Long ended;
     private boolean playing;
 
-    public Project(Integer category_id, String name, Integer color_code, Long start, Long ended,boolean playing) {
+    public Project(Integer category_id, String name, Integer color_code, Long start, Long ended, Boolean playing) {
         this.category_id = category_id;
         this.name = name;
         this.color_code = color_code;

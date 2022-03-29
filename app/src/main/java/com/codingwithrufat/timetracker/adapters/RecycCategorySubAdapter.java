@@ -17,16 +17,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.dataModels.Category;
+import com.codingwithrufat.timetracker.dataModels.TimeCategory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategorySubAdapter.ViewHolder>{
-    List<Category> subList;
+    List<TimeCategory> subList;
     Context mContext;
 
-    public RecycCategorySubAdapter(List<Category> list,Context context){
+    public RecycCategorySubAdapter(List<TimeCategory> list,Context context){
         subList=list;
         mContext = context;
     }
@@ -42,9 +43,8 @@ public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategoryS
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         changeColorOfTargetResourceFile(subList.get(position).getColor_code());
         holder.imageView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.selected_colors));
-        //TODO add time to the timer from Database
+        holder.timer.setText(getTimerAsFormat(subList.get(position).getCategory_running_time()));
         holder.category.setText(subList.get(position).getName());
-        //TODO to format long value, use the getTimerAsFormat method below(There is no any data timers to format)
     }
 
     private void changeColorOfTargetResourceFile(int targetColor) {
@@ -53,7 +53,7 @@ public class RecycCategorySubAdapter extends RecyclerView.Adapter<RecycCategoryS
         DrawableCompat.setTint(wrappedDrawable, targetColor);
     }
 
-    private String getTimerAsFormat(Long start) {
+    private String getTimerAsFormat(String start) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         Date resultDate = new Date(start);
         return sdf.format(resultDate);

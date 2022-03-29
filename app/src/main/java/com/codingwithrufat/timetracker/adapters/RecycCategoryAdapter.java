@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithrufat.timetracker.R;
 import com.codingwithrufat.timetracker.dataModels.Category;
+import com.codingwithrufat.timetracker.dataModels.TimeCategory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,10 +21,10 @@ import java.util.List;
 
 public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdapter.ViewHolder>{
     private String TAG="MyTagHere";
-    private List<Category> myList;
+    private List<TimeCategory> myList;
     Context context;
 
-    public RecycCategoryAdapter(List<Category> list,Context context){
+    public RecycCategoryAdapter(List<TimeCategory> list, Context context){
         myList=list;
         this.context = context;
     }
@@ -39,7 +40,8 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: we are here!");
 
-        //TODO add date to the date section from Database with the help of getDate method(there is no any date in the Room database)
+        //date
+        holder.date.setText(getDate(myList.get(position).getCategory_date()));
 
 
         //assigning of subRecyclerView
@@ -48,9 +50,9 @@ public class RecycCategoryAdapter extends RecyclerView.Adapter<RecycCategoryAdap
         holder.subRecyclerView_category.setAdapter(subAdapter);
     }
 
-    private String getDate(Long start) {
+    private String getDate(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd");
-        Date resultDate = new Date(start);
+        Date resultDate = new Date(date);
         return sdf.format(resultDate);
 
     }

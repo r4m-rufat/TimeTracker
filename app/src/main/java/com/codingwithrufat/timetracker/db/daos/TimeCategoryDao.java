@@ -13,9 +13,9 @@ import java.util.List;
 public interface TimeCategoryDao {
 
     @Query("SELECT * FROM TIME_CATEGORY_TABLE ORDER BY id DESC")
-    List<Project> getAllProjects();
+    List<TimeCategory> getAllCategories();
 
     @Insert
-    void insertProject(TimeCategory timeCategory);
+    void insertCategory(TimeCategory timeCategory);
 
 }
